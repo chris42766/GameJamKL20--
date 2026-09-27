@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15180cb778afe9b41a4424dc498e0637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardDisplay
-  suitText: {fileID: 8356208825537985356}
-  rankText: {fileID: 156198270354455263}
+  suitText: {fileID: 0}
+  rankText: {fileID: 0}
 --- !u!114 &2562485391296255115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400ed084489bc6d44ad407047670203e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  cardDrag: 0
 --- !u!1 &8438461298472950951
 GameObject:
   m_ObjectHideFlags: 0

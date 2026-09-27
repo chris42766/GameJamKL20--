@@ -59,38 +59,38 @@ public class TensPlayAreaScript : MonoBehaviour
         {
             if (groupOfCards.Contains(collisioninfo.gameObject))
             {
-                CardDisplay display = collisioninfo.GetComponent<CardDisplay>();
+                CardIdentity identity = collisioninfo.GetComponent<CardIdentity>();
                 CardInteraction CI=collisioninfo.GetComponent<CardInteraction>();
                 BoxCollider BoxCollider=collisioninfo.GetComponent<BoxCollider>();
                
-                if (display != null&&CI.cardDrag==false&&cardPlayed!=3)
+                if (identity != null&&CI.cardDrag==false&&cardPlayed!=3)
                 {
                     if (cardPlayed == 0)
                     {
-                        int cardValue = display.cardData.CardValue;
+                        int cardValue = identity.cardData.CardValue;
                         totalNumber += cardValue;
                         cardPlayed += 1;
-                        collisioninfo.gameObject.transform.position= new Vector3(2f, 3.53f, 4.14f);
+                        collisioninfo.gameObject.transform.position= new Vector3(-17.99f, -26.53f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);
                     }
                     else if (cardPlayed == 1)
                     {
-                        int cardValue = display.cardData.CardValue;
+                        int cardValue = identity.cardData.CardValue;
                         totalNumber += cardValue;
                         cardPlayed += 1;
-                        collisioninfo.gameObject.transform.position = new Vector3(6.63f, 3.53f, 4.14f);
+                        collisioninfo.gameObject.transform.position = new Vector3(-17.47f, -26.54f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);
                     }
                     else if (cardPlayed == 2)
                     {
-                        int cardValue = display.cardData.CardValue;
+                        int cardValue = identity.cardData.CardValue;
                         totalNumber += cardValue;
                         cardPlayed += 1;
-                        collisioninfo.gameObject.transform.position = new Vector3(11.21f, 3.53f, 4.14f);
+                        collisioninfo.gameObject.transform.position = new Vector3(-16.96f, -26.54f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);

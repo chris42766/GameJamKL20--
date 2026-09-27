@@ -69,10 +69,10 @@ public class AddPlayAreaScript : MonoBehaviour
         {
             if (groupOfCards.Contains(collisioninfo.gameObject))
             {
-                CardDisplay display = collisioninfo.GetComponent<CardDisplay>();
+                CardIdentity display = collisioninfo.GetComponent<CardIdentity>();
                 CardInteraction CI = collisioninfo.GetComponent<CardInteraction>();
                 BoxCollider BoxCollider = collisioninfo.GetComponent<BoxCollider>();
-
+                
                 if (display != null && CI.cardDrag == false && cardPlayed != 2)
                 {
                     if (cardPlayed == 0)
@@ -80,7 +80,7 @@ public class AddPlayAreaScript : MonoBehaviour
                         int cardValue = display.cardData.CardValue;
                        totalNumber += cardValue;
                         cardPlayed += 1;
-                        collisioninfo.gameObject.transform.position = new Vector3(-10.3f, 3.53f, 4.14f);
+                        collisioninfo.gameObject.transform.position = new Vector3(-19.5f, -26.54f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);
@@ -92,7 +92,7 @@ public class AddPlayAreaScript : MonoBehaviour
                    
                         totalNumber += cardValue;
                         cardPlayed += 1;
-                        collisioninfo.gameObject.transform.position = new Vector3(-5.9f, 3.53f, 4.14f);
+                        collisioninfo.gameObject.transform.position = new Vector3(-18.9f, -26.54f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);

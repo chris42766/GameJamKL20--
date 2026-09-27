@@ -8,8 +8,13 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private Vector3 mOffset;
     private float mZCoord;
     public bool cardDrag = false;
+    bool shrinkSize = false;
+    bool isLocked = false;
+   // bool shrinkSize = false;
     void Update()
     {
+
+   
         //Debug.Log(cardDrag);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,6 +48,7 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         mOffset = gameObject.transform.position - GetMouseWorldPos();
         cardDrag = true;
+        //shrinkSize = true;
     }
 
     private Vector3 GetMouseWorldPos()
@@ -59,7 +65,7 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private void OnMouseUp()
     {
         cardDrag = false;
-
+       // shrinkSize = false;
     }
 
     public Vector3 GetMousePositionInWorldSpace()
@@ -68,5 +74,14 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
        // p.y = p.y - point;
         p.z = 0f;
         return p;
+    }
+
+    void ShrinkSize()
+    {
+        // transform.localScale = new Vector3(1.46f,2.2f,0.7f);
+        Vector3 pos = transform.position;
+        pos.z -= 1.9f;
+        transform.position = pos;
+
     }
 }
