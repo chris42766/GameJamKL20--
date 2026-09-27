@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class CardDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI suitText;
-    public TextMeshProUGUI rankText;
+    public TextMeshPro suitText;
+    public TextMeshPro rankText;
 
+    public CardData cardData  { get; private set; }
 
     static readonly string[] rankNames= {"A","2","3","4","5","6","7","8","9","10","J","Q","K" };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,6 +29,7 @@ public class CardDisplay : MonoBehaviour
 
     public void SetCard(CardData data)
     {
+        cardData = data;
         rankText.text = rankNames[data.rank - 1];
         suitText.text = suitSymbols[data.suit];
 
