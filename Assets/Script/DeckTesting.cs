@@ -12,6 +12,13 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
     public float movePosition = 3.28f;
     private List<CardData> deck;
     private List<GameObject> spawnedCards = new List<GameObject>();
+
+    float cooldown = 2f;
+    public void RegisterSpawnedCard(GameObject card)
+    {
+        spawnedCards.Add(card);
+    }
+
     private int cardsDealt = 0;
 
     public AddPlayAreaScript apaScript;
@@ -35,7 +42,14 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
     {
         if (apaScript.nextRoundAdd && tpaScript.nextRoundTen)
         {
-            ResetRound();
+            if (cooldown > 0f)
+            {
+                cooldown -= Time.deltaTime;
+            }
+            else if (cooldown < 0f)
+            {
+                ResetRound();
+            }
         }
     }
     public void OnPointerDown(PointerEventData eventData)
@@ -110,7 +124,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         GameObject obj = Instantiate(cardPrefab, spawnPosition, Quaternion.identity);
         obj.GetComponent<CardDisplay>().SetCard(data);
     }*/
-
+   
     public void ResetRound()
     {
         foreach(GameObject card in spawnedCards)
@@ -133,6 +147,9 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         tpaScript.cardPlayed = 0;
         tpaScript.nextRoundTen = false;
         tpaScript.stopLoop = false;
+
+        cooldown = 2f;
+
         BuildAndShuffleDeck();
     }
 }

@@ -8,7 +8,7 @@ public class CardFlip : MonoBehaviour
     public DeckTesting deckTesting;
     public GameObject cardBackPrefab;
     public float flipDelay = 0.3f;
-    private bool isFlipping = false;
+    public bool isFlipping = false;
     public float flipDuration = 0.3f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour=

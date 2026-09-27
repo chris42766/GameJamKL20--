@@ -1,4 +1,5 @@
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,15 +9,41 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private Vector3 mOffset;
     private float mZCoord;
     public bool cardDrag = false;
+    bool cardDragOut = false;
     bool shrinkSize = false;
     bool isLocked = false;
-   // bool shrinkSize = false;
-    void Update()
-    {
+    // bool shrinkSize = false;
 
-   
-        //Debug.Log(cardDrag);
+
+
+
+    public bool beingHovered;
+    public Vector3 defaultSize = new Vector3(-19, -27.3f, -10.2f);
+    public Vector3 magnifiedSize = new Vector3(-19,-26f,-10.2f);
+    private Vector3 originalPosition;
+    float cooldown = 0.6f;
+    void Start()
+    {
+        originalPosition = transform.position;
     }
+
+/*   void Update()
+    {
+        if (cardDrag) return;
+        if (beingHovered)
+        {
+            // transform.position = new Vector3(originalPosition.x,originalPosition.y +0.1f, +originalPosition.z);
+            Vector3 target = new Vector3(originalPosition.x, originalPosition.y + 0.1f, originalPosition.z);
+            transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * 5f); 
+    }
+        else if (!beingHovered && !cardDragOut)
+        {
+            transform.position = Vector3.Lerp(transform.position, originalPosition, Time.deltaTime * 5f);
+        
+    }
+            //transform.position = originalPosition;
+        
+    }*/
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -48,6 +75,7 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         mOffset = gameObject.transform.position - GetMouseWorldPos();
         cardDrag = true;
+        cardDragOut = true;
         //shrinkSize = true;
     }
 
@@ -65,6 +93,9 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private void OnMouseUp()
     {
         cardDrag = false;
+        cardDragOut = false;
+        originalPosition = transform.position;
+
        // shrinkSize = false;
     }
 
@@ -75,13 +106,14 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         p.z = 0f;
         return p;
     }
-
-    void ShrinkSize()
+    private void OnMouseEnter()
     {
-        // transform.localScale = new Vector3(1.46f,2.2f,0.7f);
-        Vector3 pos = transform.position;
-        pos.z -= 1.9f;
-        transform.position = pos;
-
+        beingHovered = true;
     }
+
+    private void OnMouseExit()
+    {
+        beingHovered = false;
+    }
+
 }

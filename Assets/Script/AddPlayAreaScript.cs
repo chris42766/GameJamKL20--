@@ -15,7 +15,7 @@ public class AddPlayAreaScript : MonoBehaviour
     public bool stopLoop = false;
     public bool multiplier = false;
     public BoxCollider boxCollider;
-
+    public DeckTesting deckTesting;
     public bool nextRoundAdd;
     //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -81,6 +81,13 @@ public class AddPlayAreaScript : MonoBehaviour
                        totalNumber += cardValue;
                         cardPlayed += 1;
                         collisioninfo.gameObject.transform.position = new Vector3(-19.5f, -26.54f, -9.2f);
+
+
+                            GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.84f, -27.272f, -9.665f), Quaternion.Euler(0f, 81.93f, 180f));
+
+                            duplicate.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
+                        deckTesting.RegisterSpawnedCard(duplicate);
+                       
                         //Destroy(collisioninfo.gameObject);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);
@@ -94,6 +101,10 @@ public class AddPlayAreaScript : MonoBehaviour
                         cardPlayed += 1;
                         collisioninfo.gameObject.transform.position = new Vector3(-18.9f, -26.54f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
+                        GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.57f, -27.272f, -9.659f), Quaternion.Euler(0f, 110.5f, 180f));
+
+                        duplicate.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
+                        deckTesting.RegisterSpawnedCard(duplicate);
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);
                     }
