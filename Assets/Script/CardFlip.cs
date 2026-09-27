@@ -9,11 +9,7 @@ public class CardFlip : MonoBehaviour
     {
         display= GetComponent<CardDisplay>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // Start is called once before the first execution of Update after the MonoBehaviour=
 
     // Update is called once per frame
     void Update()
@@ -36,5 +32,11 @@ public class CardFlip : MonoBehaviour
         int currentRank = display.cardData.rank;
 
         if (currentRank != 3 && currentRank != 6) return;
+
+        CardData newData= display.cardData;
+        newData.rank=(currentRank==3)?6:3;
+
+        display.SetCard(newData);
+        transform.Rotate(0f, 180f, 0f);
     }
 }
