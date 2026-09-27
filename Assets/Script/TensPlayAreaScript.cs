@@ -3,13 +3,15 @@ using System.Globalization;
 using System.Linq;
 using UnityEngine;
 
-public class PlayAreaScript : MonoBehaviour
+public class TensPlayAreaScript : MonoBehaviour
 {
     public List<GameObject> groupOfCards;
     //public CardInteraction CI;
     private int totalNumber=0;
     private int cardPlayed=0;
     bool stopLoop=false;
+
+    public bool playAdd = false;
     //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +35,7 @@ public class PlayAreaScript : MonoBehaviour
                 if (totalNumber == 10 || totalNumber == 20 || totalNumber == 30)
                 {
                     Debug.Log("Condition Granted");
+                    playAdd = true;
                     stopLoop = true;
                 }
                 else
