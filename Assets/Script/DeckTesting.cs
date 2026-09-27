@@ -12,7 +12,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
     public float movePosition = 3.28f;
     private List<CardData> deck;
     private List<GameObject> spawnedCards = new List<GameObject>();
-
+    public GameObject UI;
     float cooldown = 2f;
     public void RegisterSpawnedCard(GameObject card)
     {
@@ -30,6 +30,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
     // private MaterialApplier matrialApplier;
     private void Awake()
     {
+        UI.SetActive(false);
         prefabLookup = new Dictionary<(Suit, int), GameObject>();
         foreach (var entry in cardPrefabs)
             prefabLookup[(entry.suit, entry.rank)] = entry.prefab;
@@ -72,9 +73,10 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        //ebug.Log("Holey");
+        UI.SetActive(true);
     }
-    public void OnPointerExit(PointerEventData eventData) { 
+    public void OnPointerExit(PointerEventData eventData) {
+        UI.SetActive(false);
     }
     
     
@@ -142,12 +144,14 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         apaScript.cardPlayed = 0;
         apaScript.nextRoundAdd = false;
         apaScript.stopLoop= false;
+        apaScript.isPair = false;
+
 
         tpaScript.totalNumber = 0;
         tpaScript.cardPlayed = 0;
         tpaScript.nextRoundTen = false;
         tpaScript.stopLoop = false;
-
+        tpaScript.playAddEnabled = false;
         cooldown = 2f;
 
         BuildAndShuffleDeck();

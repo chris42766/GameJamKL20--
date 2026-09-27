@@ -15,13 +15,20 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     // bool shrinkSize = false;
 
 
-
+    public CardIdentity identity;
+   
 
     public bool beingHovered;
     public Vector3 defaultSize = new Vector3(-19, -27.3f, -10.2f);
     public Vector3 magnifiedSize = new Vector3(-19,-26f,-10.2f);
     private Vector3 originalPosition;
     float cooldown = 0.6f;
+
+    void Awake()
+    {
+        identity = GetComponent<CardIdentity>();
+     
+    }
     void Start()
     {
         originalPosition = transform.position;
@@ -64,10 +71,13 @@ public class CardInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //ebug.Log("Holey");
+      
+      //  UI.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+       
+            //UI.SetActive(false);
     }
     private void OnMouseDown()
     {

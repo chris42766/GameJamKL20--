@@ -16,9 +16,17 @@ public class AddPlayAreaScript : MonoBehaviour
     public bool multiplier = false;
     public BoxCollider boxCollider;
     public DeckTesting deckTesting;
+    //public TensPlayAreaScript tpaScript;
     public bool nextRoundAdd;
-    //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
+    //pair checking system
+    private int firstCardRank=-1;
+    private int secondCardRank=-1;
+    public bool isPair=false;
+    
+
+
    void Awake()
     {
         //boxCollider.enabled = false;
@@ -28,36 +36,61 @@ public class AddPlayAreaScript : MonoBehaviour
     void Update()
     {
         //CI=GameObject.FindGameObjectWithTag("Card").GetComponent<CardInteraction>();
-
-        /*if (TPAScript.playAdd)
+        groupOfCards = GameObject.FindGameObjectsWithTag("Card").ToList();
+        if (TPAScript.playAddEnabled)
         {
             boxCollider.enabled = true;
-        }*/
-        //ShootableElectronScript bullet = groupOfBalls[k].GetComponent<ShootableElectronScript>(); /
-
-        groupOfCards = GameObject.FindGameObjectsWithTag("Card").ToList();
+        }
+        else if (!TPAScript.playAddEnabled)
+        {
+            boxCollider.enabled = false;
+        }
+        
         if (!stopLoop)
         {
             if (cardPlayed == 2)
             {
-                if (totalNumber >= 11&&totalNumber!=20&&totalNumber!=30)
+                if (TPAScript.Condition)
+
                 {
-                    int trueAnswer = totalNumber % 10;
-                    totalNumber= trueAnswer;
-                    Debug.Log(totalNumber);
+                    if (firstCardRank == secondCardRank)
+                    {
+                        if (firstCardRank == 1)
+                        {
+                            Debug.Log("Aces Pair");
+                        }
+                        else
+                        {
+                            Debug.Log("PAIR");
+                        }
+                       
+                    }
+                    else if (firstCardRank != secondCardRank)
+                    {
+                        if (totalNumber >= 11 && totalNumber != 20 && totalNumber != 30)
+                        {
+                            int trueAnswer = totalNumber % 10;
+                            totalNumber = trueAnswer;
+                            Debug.Log(totalNumber);
+                        }
+                        else if (totalNumber == 20 || totalNumber == 30)
+                        {
+                            totalNumber = 10;
+                          
+                        }
+                       
+                      
+                    }
                 }
-                else if (totalNumber == 20 || totalNumber == 30)
+                else if (!TPAScript.Condition)
                 {
-                    totalNumber = 10;
-                    Debug.Log(totalNumber);
-                }
-                else
-                {
-                    Debug.Log(totalNumber);
+                    totalNumber = 0;
+                    nextRoundAdd = true;
+                    stopLoop = true;
                 }
                 nextRoundAdd = true;
-
                 stopLoop = true;
+                Debug.Log(totalNumber);
             }
         }
 
@@ -82,10 +115,10 @@ public class AddPlayAreaScript : MonoBehaviour
                         cardPlayed += 1;
                         collisioninfo.gameObject.transform.position = new Vector3(-19.5f, -26.54f, -9.2f);
 
-
-                            GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.84f, -27.272f, -9.665f), Quaternion.Euler(0f, 81.93f, 180f));
-
-                            duplicate.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
+                        firstCardRank = display.cardData.rank;
+                           
+                        GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.84f, -27.272f, -9.665f), Quaternion.Euler(0f, 81.93f, 180f));
+                        duplicate.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
                         deckTesting.RegisterSpawnedCard(duplicate);
                        
                         //Destroy(collisioninfo.gameObject);
@@ -100,13 +133,16 @@ public class AddPlayAreaScript : MonoBehaviour
                         totalNumber += cardValue;
                         cardPlayed += 1;
                         collisioninfo.gameObject.transform.position = new Vector3(-18.9f, -26.54f, -9.2f);
-                        //Destroy(collisioninfo.gameObject);
-                        GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.57f, -27.272f, -9.659f), Quaternion.Euler(0f, 110.5f, 180f));
 
+                        secondCardRank = display.cardData.rank;
+               
+                        GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.57f, -27.272f, -9.659f), Quaternion.Euler(0f, 110.5f, 180f));
                         duplicate.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
                         deckTesting.RegisterSpawnedCard(duplicate);
+
                         Debug.Log(totalNumber);
                         Destroy(BoxCollider);
+                       // Destroy(duplicate.BoxCollider);
                     }
                     
                 }

@@ -131,6 +131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardInteraction
   cardDrag: 0
+  UI: {fileID: 0}
+  identity: {fileID: 0}
+  beingHovered: 0
+  defaultSize: {x: -19, y: -27.3, z: -10.2}
+  magnifiedSize: {x: -19, y: -26, z: -10.2}
 --- !u!54 &-8508526832715473624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -173,6 +178,7 @@ MonoBehaviour:
   deckTesting: {fileID: 0}
   cardBackPrefab: {fileID: 0}
   flipDelay: 0.3
+  isFlipping: 0
   flipDuration: 0.3
 --- !u!4 &2985052344299969847 stripped
 Transform:
