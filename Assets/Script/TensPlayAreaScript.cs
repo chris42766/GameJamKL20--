@@ -7,11 +7,12 @@ public class TensPlayAreaScript : MonoBehaviour
 {
     public List<GameObject> groupOfCards;
     //public CardInteraction CI;
-    private int totalNumber=0;
-    private int cardPlayed=0;
-    bool stopLoop=false;
+   public int totalNumber=0;
+    public int cardPlayed=0;
+    public bool stopLoop=false;
 
     public bool playAdd = false;
+    public bool nextRoundTen=false;
     //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,14 +36,18 @@ public class TensPlayAreaScript : MonoBehaviour
                 if (totalNumber == 10 || totalNumber == 20 || totalNumber == 30)
                 {
                     Debug.Log("Condition Granted");
-                    playAdd = true;
+                    //playAdd = true;
                     stopLoop = true;
+                    nextRoundTen = true;
                 }
                 else
                 {
                     Debug.Log("Condition Denied");
+
                     stopLoop = true;
+                    nextRoundTen=true;
                 }
+
             }
         }
        
