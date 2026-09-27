@@ -6,17 +6,22 @@ using UnityEngine;
 public class AddPlayAreaScript : MonoBehaviour
 {
     public TensPlayAreaScript TPAScript;
+  //  public DeckTesting deckTesting;
     public List<GameObject> groupOfCards;
     //public CardInteraction CI;
-    private int totalNumber = 0;
-    private int cardPlayed = 0;
-    bool stopLoop = false;
+    private int initialtotalNumber = 0;
+    public int totalNumber = 0;
+    public int cardPlayed = 0;
+    public bool stopLoop = false;
+    public bool multiplier = false;
     public BoxCollider boxCollider;
+
+    public bool nextRoundAdd;
     //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    void Awake()
     {
-        boxCollider.enabled = false;
+        //boxCollider.enabled = false;
     }
     //void Start()
     // Update is called once per frame
@@ -24,10 +29,10 @@ public class AddPlayAreaScript : MonoBehaviour
     {
         //CI=GameObject.FindGameObjectWithTag("Card").GetComponent<CardInteraction>();
 
-        if (TPAScript.playAdd)
+        /*if (TPAScript.playAdd)
         {
             boxCollider.enabled = true;
-        }
+        }*/
         //ShootableElectronScript bullet = groupOfBalls[k].GetComponent<ShootableElectronScript>(); /
 
         groupOfCards = GameObject.FindGameObjectsWithTag("Card").ToList();
@@ -50,6 +55,7 @@ public class AddPlayAreaScript : MonoBehaviour
                 {
                     Debug.Log(totalNumber);
                 }
+                nextRoundAdd = true;
 
                 stopLoop = true;
             }
@@ -72,7 +78,7 @@ public class AddPlayAreaScript : MonoBehaviour
                     if (cardPlayed == 0)
                     {
                         int cardValue = display.cardData.CardValue;
-                        totalNumber += cardValue;
+                       totalNumber += cardValue;
                         cardPlayed += 1;
                         collisioninfo.gameObject.transform.position = new Vector3(-10.3f, 3.53f, 4.14f);
                         //Destroy(collisioninfo.gameObject);
@@ -81,7 +87,9 @@ public class AddPlayAreaScript : MonoBehaviour
                     }
                     else if (cardPlayed == 1)
                     {
+                        
                         int cardValue = display.cardData.CardValue;
+                   
                         totalNumber += cardValue;
                         cardPlayed += 1;
                         collisioninfo.gameObject.transform.position = new Vector3(-5.9f, 3.53f, 4.14f);
