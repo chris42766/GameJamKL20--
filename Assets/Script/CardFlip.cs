@@ -16,7 +16,7 @@ public class CardFlip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isHovering && Input.GetKeyDown(KeyCode.K))
+        if (isHovering && Input.GetKeyDown(KeyCode.F))
         {
             StartCoroutine(FlipRoutine());
         }
