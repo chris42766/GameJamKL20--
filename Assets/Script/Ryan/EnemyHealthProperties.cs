@@ -47,10 +47,17 @@ public class EnemyHealthProperties : MonoBehaviour
         }
         */
     }
+    public EnemyManager manager;
     public void ApplyRoundDamage(float damage)
     {
         health = Mathf.Max(health - damage, 0f);
         enemyHPBar.fillAmount = health / maxHealth;
+
+        if (health <= 0f)
+        {
+            manager.EnemyDied();
+            Destroy(gameObject);
+        }
         Debug.Log("Took " + damage + ", " + health + " HP left");
     }
 

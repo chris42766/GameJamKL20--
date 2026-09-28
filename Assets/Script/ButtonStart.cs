@@ -7,9 +7,12 @@ public class ButtonStart : MonoBehaviour
 {
   public CameraMover cameraMover;
     public Animator mainmenuAnimator;
+    public AudioManager audioMainMenu;
    
     public void Play()
     {
+        audioMainMenu.MainMenuAudio.Stop();
+        audioMainMenu.CalmAudio.Play();
         cameraMover.isAtTarget = true;
         mainmenuAnimator.SetBool("playTrigger", true);
     }
