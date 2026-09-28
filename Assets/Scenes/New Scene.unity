@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 328519025}
   - component: {fileID: 328519024}
   - component: {fileID: 328519023}
+  - component: {fileID: 328519027}
   - component: {fileID: 328519026}
   m_Layer: 5
   m_Name: HealthBar Canvas
@@ -316,6 +317,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   _healthbarSprite: {fileID: 1879998702}
+--- !u!114 &328519027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328519021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345fa93bf0780fa40b64044169e62e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHPBar
+  fill: {fileID: 1879998702}
+  changeSpeed: 1
+  playAreaScript: {fileID: 1926364126}
 --- !u!4 &397559479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac36b13456008644d932e2bfb133bdc9, type: 3}
@@ -522,6 +538,7 @@ GameObject:
   - component: {fileID: 547206055}
   - component: {fileID: 547206054}
   - component: {fileID: 547206058}
+  - component: {fileID: 547206059}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -639,6 +656,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _maxHealth: 3
   _healthbar: {fileID: 328519026}
+--- !u!114 &547206059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547206053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066f33f48e3957e46b553c699750137c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestObjectScript
+  health: 10
+  maxHealth: 10
+  enemyHPBar: {fileID: 328519027}
 --- !u!1 &654015191
 GameObject:
   m_ObjectHideFlags: 0

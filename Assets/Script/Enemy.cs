@@ -20,9 +20,11 @@ public class Enemy : MonoBehaviour
         
     }
 
+    /*
     private void OnMouseDown()
     {
         _currentHealth -= 0.5f;
         Debug.Log("gg");
     }
+    */
 }
