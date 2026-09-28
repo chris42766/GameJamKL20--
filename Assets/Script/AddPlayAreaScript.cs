@@ -24,7 +24,10 @@ public class AddPlayAreaScript : MonoBehaviour
     private int firstCardRank=-1;
     private int secondCardRank=-1;
     public bool isPair=false;
-    
+
+
+
+   public int finalAnswer;
 
 
    void Awake()
@@ -88,8 +91,10 @@ public class AddPlayAreaScript : MonoBehaviour
                     nextRoundAdd = true;
                     stopLoop = true;
                 }
+                finalAnswer = totalNumber;
                 nextRoundAdd = true;
                 stopLoop = true;
+
                 Debug.Log(totalNumber);
             }
         }
