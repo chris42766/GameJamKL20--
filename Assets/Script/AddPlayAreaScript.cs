@@ -31,7 +31,7 @@ public class AddPlayAreaScript : MonoBehaviour
 
    public int finalAnswer;
 
-
+    public AudioSource placecardSound;
    void Awake()
     {
         //boxCollider.enabled = false;
@@ -126,6 +126,7 @@ public class AddPlayAreaScript : MonoBehaviour
                         int cardValue = display.cardData.CardValue;
                        totalNumber += cardValue;
                         cardPlayed += 1;
+                        placecardSound.Play();
                         collisioninfo.gameObject.transform.position = new Vector3(-19.5f, -26.54f, -9.2f);
 
                         firstCardRank = display.cardData.rank;
@@ -145,6 +146,7 @@ public class AddPlayAreaScript : MonoBehaviour
                    
                         totalNumber += cardValue;
                         cardPlayed += 1;
+                        placecardSound.Play();
                         collisioninfo.gameObject.transform.position = new Vector3(-18.9f, -26.54f, -9.2f);
 
                         secondCardRank = display.cardData.rank;

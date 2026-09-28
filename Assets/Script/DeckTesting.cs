@@ -14,6 +14,8 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
     private List<GameObject> spawnedCards = new List<GameObject>();
     public GameObject UI;
     float cooldown = 2f;
+
+    public AudioSource cardSound;
     public void RegisterSpawnedCard(GameObject card)
     {
         spawnedCards.Add(card);
@@ -125,7 +127,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         {
             CardData data = deck[cardsDealt];
             cardsDealt++;
-
+            cardSound.Play();
             GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
             GameObject obj = Instantiate(prefabToUse, new Vector3(-19f, -27.3f, -10.24f), Quaternion.Euler(0, 90f, 90f));
 
@@ -137,7 +139,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         {
             CardData data = deck[cardsDealt];
             cardsDealt++;
-
+            cardSound.Play();
             GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
             GameObject obj = Instantiate(prefabToUse, new Vector3(-18.6f, -27.3f, -10.26f), Quaternion.Euler(0, 90f, 90f));
 
@@ -149,7 +151,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         {
             CardData data = deck[cardsDealt];
             cardsDealt++;
-
+            cardSound.Play();
             GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
             GameObject obj = Instantiate(prefabToUse, new Vector3(-18.2f, -27.3f, -10.28f), Quaternion.Euler(0, 90f, 90f));
 
@@ -161,7 +163,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         {
             CardData data = deck[cardsDealt];
             cardsDealt++;
-
+            cardSound.Play();
             GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
             GameObject obj = Instantiate(prefabToUse, new Vector3(-17.8f, -27.3f, -10.26f), Quaternion.Euler(0, 90f, 90f));
 
@@ -173,7 +175,7 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         {
             CardData data = deck[cardsDealt];
             cardsDealt++;
-
+            cardSound.Play();
             GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
             GameObject obj = Instantiate(prefabToUse, new Vector3(-17.4f, -27.3f, -10.24f), Quaternion.Euler(0, 90f, 90f));
 

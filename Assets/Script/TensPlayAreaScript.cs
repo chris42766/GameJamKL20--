@@ -16,7 +16,7 @@ public class TensPlayAreaScript : MonoBehaviour
     public DeckTesting deckTesting;
 
     public StressManagement stressScript;
-
+    public AudioSource placecardSound;
     public bool Condition;
     //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -82,6 +82,7 @@ public class TensPlayAreaScript : MonoBehaviour
                         int cardValue = identity.cardData.CardValue;
                         totalNumber += cardValue;
                         cardPlayed += 1;
+                        placecardSound.Play();
                         collisioninfo.gameObject.transform.position= new Vector3(-17.99f, -26.53f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-18.12f, -27.272f, -9.665f), Quaternion.Euler(0f, 107.7f, 180f));
@@ -96,6 +97,7 @@ public class TensPlayAreaScript : MonoBehaviour
                         int cardValue = identity.cardData.CardValue;
                         totalNumber += cardValue;
                         cardPlayed += 1;
+                        placecardSound.Play();
                         collisioninfo.gameObject.transform.position = new Vector3(-17.47f, -26.54f, -9.2f);
                         //Destroy(collisioninfo.gameObject);
                         GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-17.85f, -27.272f, -9.659f), Quaternion.Euler(0f, 78.1f, 180f));
@@ -110,6 +112,7 @@ public class TensPlayAreaScript : MonoBehaviour
                         int cardValue = identity.cardData.CardValue;
                         totalNumber += cardValue;
                         cardPlayed += 1;
+                        placecardSound.Play();
                         collisioninfo.gameObject.transform.position = new Vector3(-16.96f, -26.54f, -9.2f);
                         GameObject duplicate = Instantiate(collisioninfo.gameObject, new Vector3(-17.58f, -27.272f, -9.659f), Quaternion.Euler(0f, 88f, 180));
 

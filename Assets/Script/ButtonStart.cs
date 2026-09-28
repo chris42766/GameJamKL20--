@@ -8,9 +8,11 @@ public class ButtonStart : MonoBehaviour
   public CameraMover cameraMover;
     public Animator mainmenuAnimator;
     public AudioManager audioMainMenu;
+    public AudioSource buttonSound;
    
     public void Play()
     {
+        buttonSound.Play();
         audioMainMenu.MainMenuAudio.Stop();
         audioMainMenu.CalmAudio.Play();
         cameraMover.isAtTarget = true;
@@ -19,6 +21,7 @@ public class ButtonStart : MonoBehaviour
 
     public void Quit()
     {
+        buttonSound.Play();
         Application.Quit();
     }
   
