@@ -25,7 +25,7 @@ public class AddPlayAreaScript : MonoBehaviour
     private int secondCardRank=-1;
     public bool isPair=false;
 
-    public EnemyHealthProperties enemyScript;
+    public EnemyHealthProperties enemyHealth;
 
 
 
@@ -87,16 +87,16 @@ public class AddPlayAreaScript : MonoBehaviour
                       
                     }
                 }
-                else if (!TPAScript.Condition)
+                else 
                 {
                     totalNumber = 0;
-                    nextRoundAdd = true;
-                    stopLoop = true;
+                    
                 }
                 finalAnswer = totalNumber;
                 nextRoundAdd = true;
-                enemyScript.TakeDamage();
+               // enemyScript.TakeDamage();
                 stopLoop = true;
+                enemyHealth.ApplyRoundDamage(finalAnswer);
 
                 Debug.Log(totalNumber);
             }

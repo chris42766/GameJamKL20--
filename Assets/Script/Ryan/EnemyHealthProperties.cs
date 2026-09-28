@@ -47,13 +47,13 @@ public class EnemyHealthProperties : MonoBehaviour
         }
         */
     }
-
-    public void TestDamage(float damage)
+    public void ApplyRoundDamage(float damage)
     {
-        health -= damage;
-        health = Mathf.Max(health, 0.0f);
-        Debug.Log("Test Damage will RUN!!");
+        health = Mathf.Max(health - damage, 0f);
+        enemyHPBar.fillAmount = health / maxHealth;
+        Debug.Log("Took " + damage + ", " + health + " HP left");
     }
+
 
     public void AddEnemyHP(float gain)
     {
@@ -67,7 +67,7 @@ public class EnemyHealthProperties : MonoBehaviour
         {
 
 
-            TestDamage(addPlayAreaScript.finalAnswer);
+            //TestDamage(addPlayAreaScript.finalAnswer);
             Debug.Log("gg, " + health + " HP left!");
 
             enemyHPBar.fillAmount = health / maxHealth;
