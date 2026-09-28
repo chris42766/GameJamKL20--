@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StressManagement : MonoBehaviour
 {
@@ -13,6 +15,27 @@ public class StressManagement : MonoBehaviour
     void Start()
     {
         addPlayAreaScript = GameObject.FindGameObjectWithTag("TestTag").GetComponent<AddPlayAreaScript>();
+
+        //start stressing out to increase stress by one every second:
+
+        StressOut();
+    }
+
+    void StressOut()
+    {
+        StartCoroutine(StressingOut());
+    }
+
+    IEnumerator StressingOut()
+    {
+        yield return new WaitForSeconds(1);
+
+        if (health < 100) 
+        {
+            GetStressed(1);
+        }
+
+        StressOut();
     }
 
     // Update is called once per frame
@@ -20,7 +43,8 @@ public class StressManagement : MonoBehaviour
     {
         if (health >= 100)
         {
-            Debug.Log("ALRIGHT, VRO; YOU DIED!!!!!");
+            //Debug.Log("ALRIGHT, VRO; GAME OVER, BLUD. *wilting flower emoji*");
+            
         }
         
         
@@ -72,6 +96,10 @@ public class StressManagement : MonoBehaviour
         Debug.Log("Took " + damage + ", " + health + " HP left");
     }
 
+    public void GameOver()
+    {
+        //son, I'm crine.
+    }
 
     public void StressRelief(float damage)
     {
