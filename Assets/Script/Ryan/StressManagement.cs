@@ -44,7 +44,8 @@ public class StressManagement : MonoBehaviour
         if (health >= 100)
         {
             //Debug.Log("ALRIGHT, VRO; GAME OVER, BLUD. *wilting flower emoji*");
-            
+            StressRelief(100);
+            GameOver();
         }
         
         
@@ -99,6 +100,8 @@ public class StressManagement : MonoBehaviour
     public void GameOver()
     {
         //son, I'm crine.
+
+        SceneManager.LoadScene("GameOverVideoScene");
     }
 
     public void StressRelief(float damage)

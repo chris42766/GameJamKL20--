@@ -47,7 +47,7 @@ public class TensPlayAreaScript : MonoBehaviour
                     nextRoundTen = true;
                     Condition = true;
 
-                    stressScript.StressRelief(10);
+                    stressScript.StressRelief(15);
                 }
                 else
                 {

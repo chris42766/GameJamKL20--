@@ -31,7 +31,7 @@ public class EnemyManager : MonoBehaviour
         int n = Random.Range(0, enemy.Length);
         currentEnemy = Instantiate(enemy[n], spawnPos, Quaternion.Euler(0f,180f,0f));
 
-        stressScript.GetStressed(20);
+        stressScript.GetStressed(15);
 
         var props = currentEnemy.GetComponent<EnemyHealthProperties>();
         props.maxHealth = EnemyHP;
