@@ -542,7 +542,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 700}
+  m_SizeDelta: {x: 1440, y: 840}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &298562691
 GameObject:
@@ -1130,7 +1130,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 700}
+  m_SizeDelta: {x: 1440, y: 840}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &427987934
 GameObject:
@@ -1180,6 +1180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonStart
   cameraMover: {fileID: 654015197}
   mainmenuAnimator: {fileID: 427987937}
+  audioMainMenu: {fileID: 0}
 --- !u!95 &427987937
 Animator:
   serializedVersion: 7
@@ -1379,6 +1380,7 @@ MonoBehaviour:
   playAddEnabled: 0
   nextRoundTen: 0
   deckTesting: {fileID: 0}
+  stressScript: {fileID: 0}
   Condition: 0
 --- !u!65 &526223891
 BoxCollider:
@@ -1760,7 +1762,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 700}
+  m_SizeDelta: {x: 1440, y: 840}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &654015191
 GameObject:
@@ -3163,6 +3165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   cameraMover: {fileID: 654015197}
   mainmenuAnimator: {fileID: 0}
+  audioMainMenu: {fileID: 0}
 --- !u!1 &1030682309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,6 +4805,7 @@ MonoBehaviour:
   nextRoundAdd: 0
   isPair: 0
   enemyHealth: {fileID: 0}
+  stressScript: {fileID: 0}
   finalAnswer: 0
 --- !u!65 &1926364127
 BoxCollider:
