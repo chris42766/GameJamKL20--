@@ -18,6 +18,7 @@ public class EnemyHealthProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (addPlayAreaScript.cardPlayed==2 && !addPlayAreaScript.stopLoop)
         {
             
@@ -29,6 +30,7 @@ public class EnemyHealthProperties : MonoBehaviour
             Debug.Log("fill amount: " + enemyHPBar.fillAmount);
             //addPlayAreaScript.cardPlayed = 0;
         }
+        */
 
         /*
         if (health <= 0)
@@ -57,5 +59,20 @@ public class EnemyHealthProperties : MonoBehaviour
     {
         health += gain;
         health = Mathf.Max(health, 0.0f);
+    }
+
+    public void TakeDamage()
+    {
+        if (addPlayAreaScript.cardPlayed == 2 && !addPlayAreaScript.stopLoop)
+        {
+
+
+            TestDamage(addPlayAreaScript.finalAnswer);
+            Debug.Log("gg, " + health + " HP left!");
+
+            enemyHPBar.fillAmount = health / maxHealth;
+            Debug.Log("fill amount: " + enemyHPBar.fillAmount);
+            //addPlayAreaScript.cardPlayed = 0;
+        }
     }
 }

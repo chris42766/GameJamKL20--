@@ -25,6 +25,8 @@ public class AddPlayAreaScript : MonoBehaviour
     private int secondCardRank=-1;
     public bool isPair=false;
 
+    public EnemyHealthProperties enemyScript;
+
 
 
    public int finalAnswer;
@@ -93,6 +95,7 @@ public class AddPlayAreaScript : MonoBehaviour
                 }
                 finalAnswer = totalNumber;
                 nextRoundAdd = true;
+                enemyScript.TakeDamage();
                 stopLoop = true;
 
                 Debug.Log(totalNumber);
