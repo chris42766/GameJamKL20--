@@ -26,12 +26,12 @@ public class EnemyManager : MonoBehaviour
     {
 
         int n = Random.Range(0, enemy.Length);
-        currentEnemy = Instantiate(enemy[n], spawnPos, Quaternion.identity);
+        currentEnemy = Instantiate(enemy[n], spawnPos, Quaternion.Euler(0f,180f,0f));
 
         var props = currentEnemy.GetComponent<EnemyHealthProperties>();
         props.maxHealth = EnemyHP;
         props.health = EnemyHP;
-       // props.manager = this;
+       props.manager = this;
         addPlayArea.enemyHealth = props;
 
         StartCoroutine(SlideTo(currentEnemy.transform, targetPos, slideDuration));
@@ -58,5 +58,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         if (t != null) t.position = target;
+        if (t.TryGetComponent(out Levitate lev))
+            lev.enabled = true;
     }
 }

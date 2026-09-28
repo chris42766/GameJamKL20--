@@ -63,10 +63,12 @@ public class AddPlayAreaScript : MonoBehaviour
                         if (firstCardRank == 1)
                         {
                             Debug.Log("Aces Pair");
+                            totalNumber = 20;
                         }
                         else
                         {
                             Debug.Log("PAIR");
+                            totalNumber = 20;
                         }
                        
                     }

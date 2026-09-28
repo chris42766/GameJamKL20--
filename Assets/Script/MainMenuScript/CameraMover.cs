@@ -14,7 +14,7 @@ public class CameraMover : MonoBehaviour
     //public Animator camAnimator;
     public bool isAtTarget;
     public float speed;
-    float cooldown = 2.5f;
+    float cooldown = 2;
 
     void Start()
     {

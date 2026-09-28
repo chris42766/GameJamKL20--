@@ -89,27 +89,100 @@ public class DeckTesting : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
 
     }
 
+    /* public void DealNextCard()
+     {
+         if (cardsDealt >= deck.Count) { 
+
+         BuildAndShuffleDeck();// shuffle new deck cuz 52 all grab
+             return;
+         }
+         if (cardsDealt != 0)
+         {
+             spawnPosition.x += movePosition;
+         }
+         CardData data = deck[cardsDealt];
+         cardsDealt++;
+
+         GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
+         GameObject obj = Instantiate(prefabToUse, spawnPosition, Quaternion.Euler(0,90f,90f));
+
+         CardIdentity identity = obj.AddComponent<CardIdentity>();
+         identity.cardData = data;
+         spawnedCards.Add(obj);
+        // Debug.Log($"Rank: {display.cardData.rank}, CardValue: {display.cardData.CardValue}");
+         //Debug.Log(display.cardData.CardValue);
+     }*/
+
     public void DealNextCard()
     {
-        if (cardsDealt >= deck.Count) { 
-        
-        BuildAndShuffleDeck();// shuffle new deck cuz 52 all grab
+        if (cardsDealt >= deck.Count)
+        {
+
+            BuildAndShuffleDeck();// shuffle new deck cuz 52 all grab
             return;
         }
-        if (cardsDealt != 0)
+        if (cardsDealt == 0)
         {
-            spawnPosition.x += movePosition;
+            CardData data = deck[cardsDealt];
+            cardsDealt++;
+
+            GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
+            GameObject obj = Instantiate(prefabToUse, new Vector3(-19f, -27.3f, -10.24f), Quaternion.Euler(0, 90f, 90f));
+
+            CardIdentity identity = obj.AddComponent<CardIdentity>();
+            identity.cardData = data;
+            spawnedCards.Add(obj);
         }
-        CardData data = deck[cardsDealt];
-        cardsDealt++;
+        else if (cardsDealt == 1)
+        {
+            CardData data = deck[cardsDealt];
+            cardsDealt++;
 
-        GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
-        GameObject obj = Instantiate(prefabToUse, spawnPosition, Quaternion.Euler(0,90f,90f));
+            GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
+            GameObject obj = Instantiate(prefabToUse, new Vector3(-18.6f, -27.3f, -10.26f), Quaternion.Euler(0, 90f, 90f));
 
-        CardIdentity identity = obj.AddComponent<CardIdentity>();
-        identity.cardData = data;
-        spawnedCards.Add(obj);
-       // Debug.Log($"Rank: {display.cardData.rank}, CardValue: {display.cardData.CardValue}");
+            CardIdentity identity = obj.AddComponent<CardIdentity>();
+            identity.cardData = data;
+            spawnedCards.Add(obj);
+        }
+        else if (cardsDealt == 2)
+        {
+            CardData data = deck[cardsDealt];
+            cardsDealt++;
+
+            GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
+            GameObject obj = Instantiate(prefabToUse, new Vector3(-18.2f, -27.3f, -10.28f), Quaternion.Euler(0, 90f, 90f));
+
+            CardIdentity identity = obj.AddComponent<CardIdentity>();
+            identity.cardData = data;
+            spawnedCards.Add(obj);
+        }
+        else if (cardsDealt == 3)
+        {
+            CardData data = deck[cardsDealt];
+            cardsDealt++;
+
+            GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
+            GameObject obj = Instantiate(prefabToUse, new Vector3(-17.8f, -27.3f, -10.26f), Quaternion.Euler(0, 90f, 90f));
+
+            CardIdentity identity = obj.AddComponent<CardIdentity>();
+            identity.cardData = data;
+            spawnedCards.Add(obj);
+        }
+        else if (cardsDealt == 4)
+        {
+            CardData data = deck[cardsDealt];
+            cardsDealt++;
+
+            GameObject prefabToUse = prefabLookup[(data.suit, data.rank)];
+            GameObject obj = Instantiate(prefabToUse, new Vector3(-17.4f, -27.3f, -10.24f), Quaternion.Euler(0, 90f, 90f));
+
+            CardIdentity identity = obj.AddComponent<CardIdentity>();
+            identity.cardData = data;
+            spawnedCards.Add(obj);
+        }
+        // Debug.Log($"Rank: {display.card
+        // Debug.Log($"Rank: {display.cardData.rank}, CardValue: {display.cardData.CardValue}");
         //Debug.Log(display.cardData.CardValue);
     }
     public GameObject GetPrefabFor(Suit suit,int rank)

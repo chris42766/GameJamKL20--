@@ -309,6 +309,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   cardDrag: 0
+  identity: {fileID: 0}
+  beingHovered: 0
+  defaultSize: {x: -19, y: -27.3, z: -10.2}
+  magnifiedSize: {x: -19, y: -26, z: -10.2}
 --- !u!1 &8438461298472950951
 GameObject:
   m_ObjectHideFlags: 0
