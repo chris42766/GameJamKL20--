@@ -2,11 +2,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using System.Collections;
 
+
 public class EnemyManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject[] enemy;
     public AddPlayAreaScript addPlayArea;
+
+    public StressManagement stressScript;
 
     public float EnemyHP = 5f;
     public float EnemyDamage = 3f;
@@ -28,6 +31,8 @@ public class EnemyManager : MonoBehaviour
         int n = Random.Range(0, enemy.Length);
         currentEnemy = Instantiate(enemy[n], spawnPos, Quaternion.Euler(0f,180f,0f));
 
+        stressScript.GetStressed(20);
+
         var props = currentEnemy.GetComponent<EnemyHealthProperties>();
         props.maxHealth = EnemyHP;
         props.health = EnemyHP;
@@ -42,6 +47,9 @@ public class EnemyManager : MonoBehaviour
     {
         EnemyHP += 3f;
         EnemyDamage += 1f;
+
+        stressScript.StressRelief(100);
+
         SpawnEnemy();
     }
     IEnumerator SlideTo(Transform t, Vector3 target, float duration)

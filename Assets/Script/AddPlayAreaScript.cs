@@ -27,7 +27,7 @@ public class AddPlayAreaScript : MonoBehaviour
 
     public EnemyHealthProperties enemyHealth;
 
-
+    public StressManagement stressScript;
 
    public int finalAnswer;
 
@@ -88,11 +88,14 @@ public class AddPlayAreaScript : MonoBehaviour
                        
                       
                     }
+                    stressScript.StressRelief(10);
                 }
                 else 
                 {
                     totalNumber = 0;
-                    
+
+                    stressScript.GetStressed(15);
+
                 }
                 finalAnswer = totalNumber;
                 nextRoundAdd = true;

@@ -15,6 +15,8 @@ public class TensPlayAreaScript : MonoBehaviour
     public bool nextRoundTen=false;
     public DeckTesting deckTesting;
 
+    public StressManagement stressScript;
+
     public bool Condition;
     //public groupOfTargets = GameObject.FindGameObjectsWithTag("Target").ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,6 +46,8 @@ public class TensPlayAreaScript : MonoBehaviour
                     stopLoop = true;
                     nextRoundTen = true;
                     Condition = true;
+
+                    stressScript.StressRelief(10);
                 }
                 else
                 {
@@ -52,6 +56,8 @@ public class TensPlayAreaScript : MonoBehaviour
                     stopLoop = true;
                     nextRoundTen=true;
                     Condition = false;
+
+                    stressScript.GetStressed(15);
                 }
 
             }
