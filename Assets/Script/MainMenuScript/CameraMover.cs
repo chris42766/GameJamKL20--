@@ -43,6 +43,8 @@ public class CameraMover : MonoBehaviour
                 transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(-0.958f, 1.672f, -3.761f), Time.deltaTime * speed);
                 transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(9.11f, 0, 0), Time.deltaTime * speed);
             }
+
+
           //  transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(-0.958f, 1.672f, -3.761f), Time.deltaTime * speed);
             //transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(9.11f, 0, 0), Time.deltaTime * speed);
         }
