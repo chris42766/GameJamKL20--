@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
     public static bool GameisPaused = false;
-
+    
+    public GameObject tutorialUI;
+    
     public GameObject pauseMenuUI;
     // Update is called once per frame
     void Update()
@@ -35,11 +38,12 @@ public class pauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        Debug.Log("Loading game...");
+        SceneManager.LoadScene(0);
     }
 
     public void Tutorial()
     {
+        
         Debug.Log("Tutorial");
     }
 
