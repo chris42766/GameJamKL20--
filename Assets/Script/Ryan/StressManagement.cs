@@ -94,7 +94,7 @@ public class StressManagement : MonoBehaviour
     {
         health = Mathf.Max(health + damage, 0f);
         enemyHPBar.fillAmount = health / maxHealth;
-        Debug.Log("Took " + damage + ", " + health + " HP left");
+        //Debug.Log("Took " + damage + ", " + health + " HP left");
     }
 
     public void GameOver()
@@ -108,7 +108,7 @@ public class StressManagement : MonoBehaviour
     {
         health = Mathf.Max(health - damage, 0f);
         enemyHPBar.fillAmount = health / maxHealth;
-        Debug.Log("Took " + damage + ", " + health + " HP left");
+        //Debug.Log("Took " + damage + ", " + health + " HP left");
     }
 
     public void TakeDamage()
@@ -116,10 +116,10 @@ public class StressManagement : MonoBehaviour
         if (addPlayAreaScript.cardPlayed == 2 && !addPlayAreaScript.stopLoop)
         {
             //TestDamage(addPlayAreaScript.finalAnswer);
-            Debug.Log("gg, " + health + " HP left!");
+            //Debug.Log("gg, " + health + " HP left!");
 
             enemyHPBar.fillAmount = health / maxHealth;
-            Debug.Log("fill amount: " + enemyHPBar.fillAmount);
+            //Debug.Log("fill amount: " + enemyHPBar.fillAmount);
             //addPlayAreaScript.cardPlayed = 0;
         }
     }
