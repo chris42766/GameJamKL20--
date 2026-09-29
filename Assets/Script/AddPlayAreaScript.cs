@@ -94,7 +94,7 @@ public class AddPlayAreaScript : MonoBehaviour
                 {
                     totalNumber = 0;
 
-                    stressScript.GetStressed(15);
+                    stressScript.GetStressed(20);
 
                 }
                 finalAnswer = totalNumber;

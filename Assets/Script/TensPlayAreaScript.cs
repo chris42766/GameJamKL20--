@@ -57,7 +57,7 @@ public class TensPlayAreaScript : MonoBehaviour
                     nextRoundTen=true;
                     Condition = false;
 
-                    stressScript.GetStressed(15);
+                    //stressScript.GetStressed(15);
                 }
 
             }
