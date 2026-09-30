@@ -21,10 +21,14 @@ public class StressManagement : MonoBehaviour
         StressOut();
     }
 
-    void StressOut()
+    public void GetStressed(float damage)
     {
-        StartCoroutine(StressingOut());
+        health = Mathf.Max(health + damage, 0f);
+        enemyHPBar.fillAmount = health / maxHealth;
+        //Debug.Log("Took " + damage + ", " + health + " HP left");
     }
+
+    
 
     IEnumerator StressingOut()
     {
@@ -38,13 +42,18 @@ public class StressManagement : MonoBehaviour
         StressOut();
     }
 
+    void StressOut()
+    {
+        StartCoroutine(StressingOut());
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (health >= 100)
+        if (health >= 99)
         {
             //Debug.Log("ALRIGHT, VRO; GAME OVER, BLUD. *wilting flower emoji*");
-            StressRelief(100);
+            //StressRelief(100);
             GameOver();
         }
         
@@ -90,18 +99,14 @@ public class StressManagement : MonoBehaviour
         }
         */
     }
-    public void GetStressed(float damage)
-    {
-        health = Mathf.Max(health + damage, 0f);
-        enemyHPBar.fillAmount = health / maxHealth;
-        //Debug.Log("Took " + damage + ", " + health + " HP left");
-    }
+    
 
     public void GameOver()
     {
         //son, I'm crine.
-
-        SceneManager.LoadScene("GameOverVideoScene");
+        Debug.Log("ERRROR");
+        SceneManager.LoadScene(1);
+        
     }
 
     public void StressRelief(float damage)
